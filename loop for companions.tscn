@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b3upopleyfptp"]
+
+[node name="Loop" type="Node2D"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Follow player" type="Node" parent="."]
+
+[node name="Wait_Timer" type="Timer" parent="."]
+
+[node name="Check if the player changed direction" type="RayCast2D" parent="."]
+
+[node name="Wait_Timer2" type="Timer" parent="."]
+
+[node name="Follow player2" type="Node" parent="."]
