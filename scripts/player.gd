@@ -23,7 +23,6 @@ func _physics_process(delta):
 	if Input.is_action_pressed("go_into_mech"):
 		# Wait for player animation going into mech
 		is_in_mech = true
-		#Timer, maybe?
 		emit_signal("in_mech")
 
 

@@ -10,3 +10,5 @@ position = Vector2(959, 324)
 
 [node name="Mech" parent="." instance=ExtResource("2_jirdo")]
 position = Vector2(312, 324)
+
+[connection signal="in_mech" from="Player" to="Mech" method="_on_player_in_mech"]
