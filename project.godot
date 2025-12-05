@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Prototype Godot Game"
 
+[global_group]
+
+Player="The player"
+
 [input]
 
 go_into_mech={
