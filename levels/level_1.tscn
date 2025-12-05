@@ -1,43 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch4urm1e7uo13"]
+[gd_scene load_steps=3 format=3 uid="uid://ch4urm1e7uo13"]
 
 [ext_resource type="PackedScene" uid="uid://dayiaebwpx04w" path="res://player.tscn" id="1_bt44k"]
-[ext_resource type="Texture2D" uid="uid://ckjsk066j8e0x" path="res://icon.svg" id="1_vn7o3"]
-[ext_resource type="Script" uid="uid://bjvx3acuoo1la" path="res://scripts/mech.gd" id="3_kx6l7"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx6l7"]
-size = Vector2(207, 180)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
-size = Vector2(655, 477)
+[ext_resource type="PackedScene" uid="uid://cxd65fkeu3xli" path="res://mech.tscn" id="2_jirdo"]
 
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_bt44k")]
-position = Vector2(649, 324)
+position = Vector2(959, 324)
 
-[node name="Mech" type="CharacterBody2D" parent="."]
+[node name="Mech" parent="." instance=ExtResource("2_jirdo")]
 position = Vector2(312, 324)
-script = ExtResource("3_kx6l7")
-player_path = NodePath("../Player")
-metadata/_edit_group_ = true
-
-[node name="Icon" type="Sprite2D" parent="Mech"]
-modulate = Color(1, 1, 1, 0.3372549)
-position = Vector2(0, 5)
-texture = ExtResource("1_vn7o3")
-
-[node name="hitbox" type="Area2D" parent="Mech"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mech/hitbox"]
-visible = false
-position = Vector2(4.5, 1)
-shape = SubResource("RectangleShape2D_kx6l7")
-
-[node name="dectection_area" type="Area2D" parent="Mech" groups=["Player"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mech/dectection_area"]
-position = Vector2(138.5, -86.5)
-shape = SubResource("RectangleShape2D_bt44k")
-
-[connection signal="body_entered" from="Mech/dectection_area" to="Mech" method="_on_dectection_area_body_entered"]
-[connection signal="body_exited" from="Mech/dectection_area" to="Mech" method="_on_dectection_area_body_exited"]

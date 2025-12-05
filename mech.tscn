@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxd65fkeu3xli"]
+
+[ext_resource type="Script" uid="uid://bjvx3acuoo1la" path="res://scripts/mech.gd" id="1_e36w2"]
+[ext_resource type="Texture2D" uid="uid://ckjsk066j8e0x" path="res://icon.svg" id="2_e4nkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e36w2"]
+size = Vector2(127, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx6l7"]
+size = Vector2(207, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt44k"]
+size = Vector2(842, 627)
+
+[node name="Mech" type="CharacterBody2D"]
+script = ExtResource("1_e36w2")
+player_path = NodePath("../Player")
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.3372549)
+position = Vector2(0, 5)
+texture = ExtResource("2_e4nkn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 5.5)
+shape = SubResource("RectangleShape2D_e36w2")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+visible = false
+position = Vector2(4.5, 1)
+shape = SubResource("RectangleShape2D_kx6l7")
+
+[node name="dectection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dectection_area"]
+position = Vector2(-60, -144.5)
+shape = SubResource("RectangleShape2D_bt44k")
+
+[connection signal="body_entered" from="dectection_area" to="." method="_on_dectection_area_body_entered"]
+[connection signal="body_exited" from="dectection_area" to="." method="_on_dectection_area_body_exited"]

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+# TODO: clean up code.
 
-const SPEED = 300.0
+const SPEED = 900.0
 const JUMP_VELOCITY = -400.0
 
 var is_in_mech = false;
@@ -24,8 +25,6 @@ func _physics_process(delta):
 		is_in_mech = true
 		#Timer, maybe?
 		emit_signal("in_mech")
-		
-	pass
 
 
 func _handle_movement(delta):
